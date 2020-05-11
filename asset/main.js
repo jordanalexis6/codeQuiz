@@ -81,3 +81,16 @@ function displayQuestion() {
     document.getElementById("answers").append(button);
   }
 }
+// save the score in localStorage
+function completeQuiz() {
+  var initials;
+  var scores = JSON.parse(localStorage.getItem("scores")) || [];
+  scores.push({
+    initials: initials,
+    score: score,
+  }); // save the player's score
+
+  // save the scores back in localstorage
+  localStorage.setItem("scores", JSON.stringify(scores));
+  // display the scoreboard
+}
