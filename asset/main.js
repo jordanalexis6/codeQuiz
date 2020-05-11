@@ -41,7 +41,7 @@ startQ.addEventListener("click", function () {
 
   // delete start button
 
-  //todo: delete title
+  //delete title
 
   // display first questions and answer
   displayQuestion();
@@ -51,6 +51,23 @@ startQ.addEventListener("click", function () {
 function displayQuestion() {
   document.getElementById("question").innerHTML =
     questions[currentQuestion].question;
+  // creating buttons
+for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
+  var button = document.createElement("button");
+  button.innerText = questions[currentQuestion].answers[i];
+  button.value = i;
+  button.addEventListener("click", function (event) {
+    // if answer is incorrect
+   
+      // alert("incorrect");
+    
+      // answer is correct
+      
+    // the quiz is complete
+    
+      // increment the question and move onto the next
+  
+  document.getElementById("answers").append(button);
 }
 
 // creating buttons
