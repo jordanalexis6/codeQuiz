@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Code Quiz</title>
-        <link rel="stylesheet" href="css/reset.css">
         <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -15,11 +14,11 @@
     <link rel="stylesheet" href="asset/style.css">
 </head>
 <body>
-                <!-- View Highscore & Time Remaining -->
-    
-    
-                <!-- The h1 with an ul with all game info/rules --->
-        <h1>Test your JavaScript Knowledge!</h1>
+            <!-- View Highscore & Time Remaining -->
+                <div id="points"></div>
+                <div id="timer"></div>
+            <!-- The h1 with an ul with all game info/rules --->
+        <h1 id="title">Test your JavaScript Knowledge!</h1>
                 <ul>
                     <li>*When you get a question <em>right</em> you get +5 points</li>
                     <li>*When you get a question <strong>wrong</strong> you lose 2 seconds</li>
@@ -27,10 +26,14 @@
                     <li>*You can also add your initials to the highscore text box to watch yourself improve over time!</li>
                 </ul>
     
-                <!-- button that is conected to the js -->
-            <button id="startQuiz" type="button" class="btn btn-outline-dark" >Lets get Java with it!</button>
-    
-                <!-- fixed bottom footer -->
+            <!-- button that is conected to the js -->
+        <button id="start" type="button" class="btn btn-outline-dark" >Start</button>
+        <div id= "quiz" class="hide">
+            <!-- two buttons will be added to get next question and submit the quiz -->
+			  <h2 id= "question"></h2>
+        <div id= "answers"></div>
+            
+            <!-- fixed bottom footer -->
 </footer class="footer">
     
 <div class="container">
@@ -39,7 +42,7 @@
   
     <div class="collapse navbar-collapse" id="navbarNav">
     
-              <!-- socials -->
+           <!-- socials -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="https://www.linkedin.com/in/jordan-neill-a48b681a0/"><i class="fab fa-linkedin"></i></a> 

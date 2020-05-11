@@ -1,68 +1,62 @@
 // variables
-var startQ = document.getElementById("#startQuiz");
-var myQuestions = [
+var startQ = document.getElementById("start");
+var title = document.getElementById("title");
+var questions = [
   {
     question: "Who invented JavaScript?",
-    answers: {
-      a: "Douglas Crockford",
-      b: "Sheryl Sandberg",
-      c: "Brendan Eich",
-    },
-    correctAnswer: "c",
+    answers: ["Douglas Crockford", "Sheryl Sandberg", "Brendan Eich"],
+    correctAnswer: 2,
   },
   {
     question: "Which one of these is a JavaScript package manager?",
-    answers: {
-      a: "Node.js",
-      b: "TypeScript",
-      c: "npm",
-    },
-    correctAnswer: "c",
+    answers: ["Node.js", "TypeScript", "npm"],
+    correctAnswer: 2,
   },
   {
     question: "Which tool can you use to ensure code quality?",
-    answers: {
-      a: "Angular",
-      b: "jQuery",
-      c: "RequireJS",
-      d: "ESLint",
-    },
-    correctAnswer: "d",
+    answers: ["Angular", "jQuery", "RequireJS", "ESLint"],
+    correctAnswer: 3,
   },
 ];
-var scoreboard = [];
-var timerDisplay = [];
-var correct = 0;
-var incorrect = 0;
-var question = "none";
-var input = "none";
-var answer = "none";
-
-startQ.addEventListener("click", startQuizNow);
+let currentQuestion = 0;
+var timer = 75;
+var score = 0;
+// var start = document.getElementById("startQuiz");
 // start quiz // make the timer start and then ask first question
 
-function startQuizNow() {
-  if (true)
-    randomQuestion =
-      myQuestions[Math.floor(Math.random() * myQuestions.length)];
-  //   timer = setInterval(timerDisplay, 75000); // 1000ms = 1s
+// runs every secound
+
+// if timer runs out
+
+// update the timer on page
+
+// delete start button
+
+//delete title
+
+// display first questions and answer
+displayQuestion();
+
+// displays first question
+function displayQuestion() {
+  document.getElementById("question").innerHTML =
+    questions[currentQuestion].question;
 }
-document.body.getElementById("startQuiz").innerHTML =
-  startQuizNow[randomQuestion];
-// // if user is wrong take off 2 secs from time
-// if user is right at 5 points
-// var score = function () {
-//   if (input == answer) {
-//     correct = correct + 1;
-//     alert("correct");
-//   } else {
-//     incorrect = incorrect + 1;
-//     alert("incorrect");
-//   }
-// };
 
-// keep score on top right with time going down
+// creating buttons
 
-// display score with time up
+// if answer is incorrect
 
-// enter initial for highscores
+// answer is correct
+
+// the quiz is complete
+
+// increment the question and move onto the next
+
+// save the score in localStorage
+
+// save the player's score
+
+// save the scores back in localstorage
+
+// display the scoreboard
