@@ -40,7 +40,7 @@ startQ.addEventListener("click", function () {
   // add the score to display on page
 
   // delete start button
-
+  start.parentNode.removeChild(start);
   //delete title
 
   // display first questions and answer
