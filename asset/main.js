@@ -23,19 +23,29 @@ var timer = 75;
 var score = 0;
 // var start = document.getElementById("startQuiz");
 // start quiz // make the timer start and then ask first question
+startQ.addEventListener("click", function () {
+  var createTimer = setInterval(function () {
+    // runs every secound
+    timer--;
 
-// runs every secound
+    // if timer runs out
+    if (timer === 0) {
+      clearInterval(createTimer);
+      completeQuiz();
+    }
+    // update the timer on page
+    document.getElementById("timer").innerHTML = timer + "seconds";
+  }, 1000);
 
-// if timer runs out
+  // add the score to display on page
 
-// update the timer on page
+  // delete start button
 
-// delete start button
+  //todo: delete title
 
-//delete title
-
-// display first questions and answer
-displayQuestion();
+  // display first questions and answer
+  displayQuestion();
+});
 
 // displays first question
 function displayQuestion() {
