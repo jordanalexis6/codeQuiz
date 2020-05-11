@@ -47,43 +47,37 @@ startQ.addEventListener("click", function () {
   displayQuestion();
 });
 
-// displays first question
 function displayQuestion() {
+  // displays first question
   document.getElementById("question").innerHTML =
     questions[currentQuestion].question;
   // creating buttons
-for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
-  var button = document.createElement("button");
-  button.innerText = questions[currentQuestion].answers[i];
-  button.value = i;
-  button.addEventListener("click", function (event) {
-    // if answer is incorrect
-   
-      // alert("incorrect");
-    
-      // answer is correct
-      
-    // the quiz is complete
-    
-      // increment the question and move onto the next
-  
-  document.getElementById("answers").append(button);
+  for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
+    var button = document.createElement("button");
+    button.innerText = questions[currentQuestion].answers[i];
+    button.value = i;
+    button.addEventListener("click", function (event) {
+      // if answer is incorrect
+      if (
+        event.target.value !== questions[currentQuestion].correctAnswer.value
+      ) {
+        timer -= 10;
+      } else {
+        // answer is correct
+        event.target.value === questions[currentQuestion].correctAnswer.value;
+        points = score++;
+        displayQuestion();
+      }
+      // the quiz is complete
+      if (currentQuestion === questions.length - 1) {
+        completeQuiz();
+      } else {
+        // increment the question and move onto the next
+        document.getElementById("answers").innerHTML = "";
+        currentQuestion++;
+        displayQuestion();
+      }
+    });
+    document.getElementById("answers").append(button);
+  }
 }
-
-// creating buttons
-
-// if answer is incorrect
-
-// answer is correct
-
-// the quiz is complete
-
-// increment the question and move onto the next
-
-// save the score in localStorage
-
-// save the player's score
-
-// save the scores back in localstorage
-
-// display the scoreboard
