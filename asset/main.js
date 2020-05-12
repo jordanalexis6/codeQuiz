@@ -2,6 +2,11 @@
 var startQ = document.getElementById("start");
 var title = document.getElementById("title");
 var initials = document.getElementById("initials");
+var quizCont = document.getElementById("quiz");
+var instructions = document.getElementById("instructions");
+var endGame = document.getElementById("endGame");
+var timer = document.getElementById("timer");
+var points = document.getElementById("points");
 var questions = [
   {
     question: "What does JSON mean?",
@@ -10,18 +15,18 @@ var questions = [
       "JavaScript Operation Note",
       "Javascript Operation Notation",
     ],
-    correctAnswer: 0,
+    correctAnswer: "JavaScript Object Notation",
   },
   {
     question: "Where is the correct place to insert a JavaScript?",
     answers: ["<head>", "end of <body>", "Both <head> & <body> section"],
-    correctAnswer: 0,
+    correctAnswer: "Both <head> & <body> section",
   },
   {
     question:
       "What is a JavaScript element that represents either a true or false statement?",
     answers: ["True/False", "String", "Boolean", "concatenation"],
-    correctAnswer: 2,
+    correctAnswer: "Boolean",
   },
 ];
 let currentQuestion = 0;
@@ -42,7 +47,7 @@ startQ.addEventListener("click", function () {
     document.getElementById("timer").innerHTML = timer + "seconds";
   }, 1000);
   // add the score to display on page
-  document.getElementById("scoreboard").innerHTML = points + " " + "points";
+  document.getElementById("points").innerHTML = points + " " + "points";
   // delete start button
   start.parentNode.removeChild(start);
   //delete title
@@ -55,6 +60,7 @@ function displayQuestion() {
   // displays first question
   document.getElementById("question").innerHTML =
     questions[currentQuestion].question;
+
   // creating buttons
   for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
     var button = document.createElement("button");
@@ -69,7 +75,7 @@ function displayQuestion() {
       } else {
         // answer is correct
         event.target.value === questions[currentQuestion].correctAnswer.value;
-        points = score++;
+        points++;
         displayQuestion();
       }
       // the quiz is complete
@@ -77,7 +83,7 @@ function displayQuestion() {
         completeQuiz();
       } else {
         // increment the question and move onto the next
-        document.getElementById("answers").innerHTML = " ";
+        document.getElementById("answers").innerHTML = "";
         currentQuestion++;
         displayQuestion();
       }
@@ -87,7 +93,11 @@ function displayQuestion() {
 }
 // save the score in localStorage
 function completeQuiz() {
-  var initials;
+  instructions.setAttribute("class", "hide");
+  quizCont.setAttribute("class", "hide");
+  endGame.removeAttribute("class", "hide");
+  initials.removeAttribute("class", "hide");
+  initials;
   var scores = JSON.parse(localStorage.getItem("scores")) || [];
   scores.push({
     initials: initials,

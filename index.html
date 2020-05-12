@@ -13,53 +13,55 @@
     <link rel="shortcut icon" href="https://www.pikpng.com/pngl/m/2-23886_white-question-mark-icon-png-question-mark-clipart.png">
     <link rel="stylesheet" href="asset/style.css">
 </head>
-<body>
-            <!-- View Highscore & Time Remaining -->
-                <h1 id="scoreboard"></h1>
-                <h1 id="timer"></h1>
-            <!-- The h1 with an ul with all game info/rules --->
-        <h1 id="title">Test your JavaScript Knowledge!</h1>
-                <ul>
+<body id= "container">
+         <!-- View Highscore & Time Remaining -->
+                <h3 id="points"></h3>
+                <h3 id="timer"></h3>
+        <!-- The h1 with an ul with all game info/rules --->
+          <h1 id="title">Test your JavaScript Knowledge!</h1>
+                <ul id= "instructions">
                     <li>*When you get a question <em>right</em> you get +5 points</li>
                     <li>*When you get a question <strong>wrong</strong> you lose 2 seconds</li>
                     <li>*At the end your score will be displayed</li>
                     <li>*You can also add your initials to the highscore text box to watch yourself improve over time!</li>
                 </ul>
     
-            <!-- button that is conected to the js -->
-        <button id="start" type="button" class="btn btn-outline-dark" >Start</button>
-        <div id= "quiz"></div>
-            <!-- two buttons will be added to get next question and submit the quiz -->
-			  <h2 id= "question"></h2>
-        <div id= "answers"></div>
+        <!-- button that is conected to the js -->
+          <button id="start" type="button" class="btn btn-outline-dark" >Start</button>
+
+        <!-- quiz container -->
+        <div id= "quiz">
+			    <h2 id= "question"></h2>
+          <h2 id= "answers"></h2>
+        </div>
+        
         <!-- initials input for after game is over to add to scoreboard -->
+        <h3 class="hide" id= "endGame">WOW! Great job! put your initals below to watch yourself get better on the scoreboard.</h3>
         <input class="hide" id= "initials"></input>
-            <!-- fixed bottom footer -->
+        <!-- fixed bottom footer -->
+
 <footer class="footer">
-    
-<div class="container">
-     
-  <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
-  
-    <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="container">
+    <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+      <div class="collapse navbar-collapse" id="navbarNav">
     
            <!-- socials -->
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="https://www.linkedin.com/in/jordan-neill-a48b681a0/"><i class="fab fa-linkedin"></i></a> 
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.linkedin.com/in/jordan-neill-a48b681a0/"><i class="fab fa-linkedin"></i></a> 
+          </li> 
+          <li class="navbar-nav mr-auto">
+            <a class="nav-link" href="https://github.com/jordanalexis6"><i class="fab fa-github"></i></a>
+          </li>  
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://jordanalexis6.github.io">Jordan Neill</a>
         </li> 
-        <li class="navbar-nav mr-auto">
-          <a class="nav-link" href="https://github.com/jordanalexis6"><i class="fab fa-github"></i></a>
-        </li>  
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="https://jordanalexis6.github.io">Jordan Neill</a>
-      </li> 
-      </ul>  
-    </div>
-  </nav>  
-</div>
+        </ul>  
+      </div>
+    </nav>  
+  </div>
 </footer>
 <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
