@@ -74,7 +74,7 @@ function displayQuestion() {
       button.value = i;
       button.addEventListener("click", function (event) {
         if (event.target.value == questions[currentQuestion].correctAnswer) {
-          points += 1;
+          points += 5;
 
           // increment the question and move onto the next
           document.getElementById("answers").innerHTML = "";
