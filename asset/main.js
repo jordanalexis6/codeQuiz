@@ -5,8 +5,6 @@ var initials = document.getElementById("initials");
 var quizCont = document.getElementById("quiz");
 var instructions = document.getElementById("instructions");
 var endGame = document.getElementById("endGame");
-var timer = document.getElementById("timer");
-var points = document.getElementById("points");
 var questions = [
   {
     question: "What does JSON mean?",
@@ -15,18 +13,18 @@ var questions = [
       "JavaScript Operation Note",
       "Javascript Operation Notation",
     ],
-    correctAnswer: "JavaScript Object Notation",
+    correctAnswer: 0,
   },
   {
     question: "Where is the correct place to insert a JavaScript?",
     answers: ["<head>", "end of <body>", "Both <head> & <body> section"],
-    correctAnswer: "Both <head> & <body> section",
+    correctAnswer: 2,
   },
   {
     question:
       "What is a JavaScript element that represents either a true or false statement?",
     answers: ["True/False", "String", "Boolean", "concatenation"],
-    correctAnswer: "Boolean",
+    correctAnswer: 2,
   },
 ];
 let currentQuestion = 0;
@@ -35,17 +33,8 @@ var scoreboard = 0;
 var points = 0;
 // start quiz // make the timer start // points display // delete start button & title
 startQ.addEventListener("click", function () {
-  var createTimer = setInterval(function () {
-    // runs every secound
-    timer--;
-    // if timer runs out
-    if (timer === 0) {
-      clearInterval(createTimer);
-      completeQuiz();
-    }
-    // update the timer on page
-    document.getElementById("timer").innerHTML = timer + "seconds";
-  }, 1000);
+  startTimer();
+
   // add the score to display on page
   document.getElementById("points").innerHTML = points + " " + "points";
   // delete start button
@@ -56,55 +45,83 @@ startQ.addEventListener("click", function () {
   displayQuestion();
 });
 
+var createTimer;
+
+function startTimer() {
+  createTimer = setInterval(function () {
+    // runs every secound
+    timer--;
+    // if timer runs out
+    if (timer === 0) {
+      clearInterval(createTimer);
+      completeQuiz();
+    }
+    // update the timer on page
+    document.getElementById("timer").innerHTML = timer + "seconds";
+  }, 1000);
+}
 function displayQuestion() {
   // displays first question
-  document.getElementById("question").innerHTML =
-    questions[currentQuestion].question;
+  document.getElementById("points").innerHTML = points;
+  if (currentQuestion < questions.length) {
+    document.getElementById("question").innerHTML =
+      questions[currentQuestion].question;
 
-  // creating buttons
-  for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
-    var button = document.createElement("button");
-    button.innerText = questions[currentQuestion].answers[i];
-    button.value = i;
-    button.addEventListener("click", function (event) {
-      // if answer is incorrect
-      if (
-        event.target.value !== questions[currentQuestion].correctAnswer.value
-      ) {
-        timer -= 10;
-      } else {
-        // answer is correct
-        event.target.value === questions[currentQuestion].correctAnswer.value;
-        points++;
-        displayQuestion();
-      }
-      // the quiz is complete
-      if (currentQuestion === questions.length - 1) {
-        completeQuiz();
-      } else {
-        // increment the question and move onto the next
-        document.getElementById("answers").innerHTML = "";
-        currentQuestion++;
-        displayQuestion();
-      }
-    });
-    document.getElementById("answers").append(button);
+    // creating buttons
+    for (var i = 0; i < questions[currentQuestion].answers.length; i++) {
+      var button = document.createElement("button");
+      button.innerText = questions[currentQuestion].answers[i];
+      button.value = i;
+      button.addEventListener("click", function (event) {
+        if (event.target.value == questions[currentQuestion].correctAnswer) {
+          points += 1;
+
+          // increment the question and move onto the next
+          document.getElementById("answers").innerHTML = "";
+          currentQuestion++;
+          displayQuestion();
+        } else {
+          timer -= 10;
+          alert("Incorrect");
+        }
+
+        if (currentQuestion === questions.length) {
+          clearInterval(createTimer);
+          completeQuiz();
+        }
+      });
+      document.getElementById("answers").append(button);
+    }
   }
 }
+
 // save the score in localStorage
 function completeQuiz() {
   instructions.setAttribute("class", "hide");
   quizCont.setAttribute("class", "hide");
   endGame.removeAttribute("class", "hide");
   initials.removeAttribute("class", "hide");
-  initials;
-  var scores = JSON.parse(localStorage.getItem("scores")) || [];
-  scores.push({
-    initials: initials,
-    points: points,
-  }); // save the player's score
+  var button = document.createElement("button");
+  button.innerText = "Save Score";
+  button.addEventListener("click", function (event) {
+    var scores = JSON.parse(localStorage.getItem("scores")) || [];
+    scores.push({
+      initials: document.getElementById("initials").value,
+      points: points,
+    });
+    localStorage.setItem("scores", JSON.stringify(scores));
 
+    initials.setAttribute("class", "hide");
+    document.getElementById("scores").setAttribute("class", "hide");
+
+    for (var i = 0; i < scores.length; i++) {
+      var li = document.createElement("li");
+      li.innerHTML = scores[i].initials + " " + scores[i].points;
+      document.getElementById("scoresList").append(li);
+    }
+  }); // save the player's score
+  document.getElementById("scores").append(button);
   // save the scores back in localstorage
-  localStorage.setItem("scores", JSON.stringify(scores));
+
   // display the scoreboard
 }
