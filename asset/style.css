@@ -9,6 +9,9 @@ ul {
   display: none;
 }
 h3 {
-  display: flex;
-  flex-direction: column;
+  margin: 10px;
+}
+button {
+  margin: 10px;
+  justify-content: center;
 }
