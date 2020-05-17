@@ -26,6 +26,22 @@ var questions = [
     answers: ["True/False", "String", "Boolean", "concatenation"],
     correctAnswer: 2,
   },
+
+  {
+    question: "How do you increase a number by one in JS?",
+    answers: ["add", "increment", "increase", "amplify"],
+    correctAnswer: 1,
+  },
+  {
+    question: "What is NOT a way to create a pop-up in JS?",
+    answers: ["prompt", "alert", "confirm", "surprise"],
+    correctAnswer: 3,
+  },
+  {
+    question: "How do you decrease a number by one in JS?",
+    answers: ["subtract", "decrease", "minus", "decrement"],
+    correctAnswer: 3,
+  },
 ];
 let currentQuestion = 0;
 var timer = 75;
