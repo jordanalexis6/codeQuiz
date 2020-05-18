@@ -7,6 +7,11 @@ var instructions = document.getElementById("instructions");
 var endGame = document.getElementById("endGame");
 var questions = [
   {
+    question: "Which answer is NOT considered a primary data type in JS?",
+    answers: ["Number", "Object", "Boolean", "String"],
+    correctAnswer: 1,
+  },
+  {
     question: "What does JSON mean?",
     answers: [
       "JavaScript Object Notation",
@@ -16,31 +21,77 @@ var questions = [
     correctAnswer: 0,
   },
   {
+    question: "Which answer is NOT a JS operator?",
+    answers: ["=", "//", "*", "++", "/", "%", "**"],
+    correctAnswer: 1,
+  },
+  {
     question: "Where is the correct place to insert a JavaScript?",
-    answers: ["<head>", "end of <body>", "Both <head> & <body> section"],
+    answers: ["<head>", "End of <body>", "Both <head> & <body> section"],
     correctAnswer: 2,
+  },
+  {
+    question: "Which answer is NOT considered a special data type in JS?",
+    answers: ["Array", "Undefined", "Null"],
+    correctAnswer: 0,
   },
   {
     question:
       "What is a JavaScript element that represents either a true or false statement?",
-    answers: ["True/False", "String", "Boolean", "concatenation"],
+    answers: ["True/False", "String", "Boolean", "Concatenation"],
     correctAnswer: 2,
   },
 
   {
     question: "How do you increase a number by one in JS?",
-    answers: ["add", "increment", "increase", "amplify"],
+    answers: ["Add", "Increment", "Increase", "Amplify"],
     correctAnswer: 1,
   },
   {
     question: "What is NOT a way to create a pop-up in JS?",
-    answers: ["prompt", "alert", "confirm", "surprise"],
+    answers: ["Prompt", "Alert", "Confirm", "Surprise"],
+    correctAnswer: 3,
+  },
+  {
+    question: "What does concatenate mean?",
+    answers: [
+      "Targets an element in HTML",
+      "Combines two variables",
+      "Combines two strings",
+    ],
+    correctAnswer: 2,
+  },
+  {
+    question: "Which answer is NOT considered a composite data type in JS?",
+    answers: ["Object", "Null", "Array"],
+    correctAnswer: 1,
+  },
+  {
+    question:
+      "What is the default behavior called that is used to move declarations to the top the current scope?",
+    answers: ["Arranging", "Sorting", "Jumping", "Hoisting"],
+    correctAnswer: 3,
+  },
+  {
+    question: "Which answer is NOT a kind of loop in JS?",
+    answers: ["for/in", "do/while", "while", "for/while", "for/of"],
     correctAnswer: 3,
   },
   {
     question: "How do you decrease a number by one in JS?",
-    answers: ["subtract", "decrease", "minus", "decrement"],
+    answers: ["Subtract", "Decrease", "Minus", "Decrement"],
     correctAnswer: 3,
+  },
+  {
+    question:
+      "What kind of statment is used to execute actions based on a trigger or condition?",
+    answers: [
+      "Boolean Variable",
+      "Conditional Statement",
+      "Fired Event",
+      "Default Behaivor",
+    ],
+    correctAnswer: 1,
   },
 ];
 let currentQuestion = 0;
