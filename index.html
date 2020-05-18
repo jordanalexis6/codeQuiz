@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Code Quiz</title>
         <link
-      rel="stylesheet"
+      rel="stylesheet" 
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link rel="shortcut icon" href="https://www.pikpng.com/pngl/m/2-23886_white-question-mark-icon-png-question-mark-clipart.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"><link rel="shortcut icon" href="https://www.pikpng.com/pngl/m/2-23886_white-question-mark-icon-png-question-mark-clipart.png">
     <link rel="stylesheet" href="asset/style.css">
 </head>
 <body id= "container">
@@ -27,7 +28,7 @@
                     <li>*At the end your score will be displayed</li>
                     <li>*You can also add your initials to the highscore text box to watch yourself improve over time!</li>
                 </ul>
-    
+
         <!-- button that is conected to the js -->
           <button id="start" type="button" class="btn btn-outline-dark" >Start</button>
 
@@ -38,18 +39,20 @@
         </div>
         
         <!-- initials input for after game is over to add to scoreboard -->
-        <h4 class="hide" id= "endGame">WOW! Great job! put your initals below to watch yourself get better on the scoreboard.</h4>
+        <h4 class="hide" id= "endGame">WOW! Great job! Input your initals below to watch yourself get better on the scoreboard.</h4>
         <input class="hide" id= "initials" />
         <div id= "scores"></div>
+        <button class="hide" id= "restartQuiz" type="button">Try Again!</button>
         <ul id = "scoresList"></ul>
+        
+        
         <!-- fixed bottom footer -->
-
 <footer class="footer">
   <div class="container">
     <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
       <div class="collapse navbar-collapse" id="navbarNav">
     
-           <!-- socials -->
+        <!-- socials -->
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="https://www.linkedin.com/in/jordan-neill-a48b681a0/"><i class="fab fa-linkedin"></i></a> 
