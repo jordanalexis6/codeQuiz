@@ -88,6 +88,7 @@ function displayQuestion() {
       var button = document.createElement("button");
       button.innerText = questions[currentQuestion].answers[i];
       button.value = i;
+      button.setAttribute("class", "btn-outline-dark");
       button.addEventListener("click", function (event) {
         if (event.target.value == questions[currentQuestion].correctAnswer) {
           points += 5;
@@ -118,6 +119,7 @@ function completeQuiz() {
   endGame.removeAttribute("class", "hide");
   initials.removeAttribute("class", "hide");
   var button = document.createElement("button");
+  button.setAttribute("class", "btn-outline-dark");
   button.innerText = "Save Score";
   button.addEventListener("click", function (event) {
     var scores = JSON.parse(localStorage.getItem("scores")) || [];
@@ -138,6 +140,7 @@ function completeQuiz() {
     // restarts quiz when hit button
     var restartQ = document.getElementById("restartQuiz");
     restartQ.removeAttribute("class", "hide");
+    restartQ.setAttribute("class", "btn-outline-dark");
     restartQ.addEventListener(
       "click",
       function (e) {
