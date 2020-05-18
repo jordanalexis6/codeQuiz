@@ -119,7 +119,7 @@ function startTimer() {
     // runs every secound
     timer--;
     // if timer runs out
-    if (timer === 0) {
+    if (timer < 0) {
       clearInterval(createTimer);
       completeQuiz();
     }
