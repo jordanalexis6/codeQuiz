@@ -2,6 +2,7 @@ body {
   text-align: center;
   background-color: rgb(255, 249, 184);
   font-family: "Roboto";
+  margin: 20px;
 }
 ul {
   list-style-type: none;
@@ -11,10 +12,14 @@ ul {
 }
 h3 {
   margin: 10px;
+  padding: 10px;
 }
 button {
   margin: 10px;
   justify-content: center;
   background-color: transparent;
   border-radius: 4px;
+}
+input {
+  background-color: rgb(255, 250, 196);
 }
