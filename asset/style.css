@@ -15,4 +15,6 @@ h3 {
 button {
   margin: 10px;
   justify-content: center;
+  background-color: transparent;
+  border-radius: 4px;
 }
