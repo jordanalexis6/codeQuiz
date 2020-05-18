@@ -135,9 +135,16 @@ function completeQuiz() {
       li.innerHTML = scores[i].initials + " " + scores[i].points;
       document.getElementById("scoresList").append(li);
     }
-  }); // save the player's score
+    // restarts quiz when hit button
+    var restartQ = document.getElementById("restartQuiz");
+    restartQ.removeAttribute("class", "hide");
+    restartQ.addEventListener(
+      "click",
+      function (e) {
+        location.reload();
+      },
+      false
+    );
+  });
   document.getElementById("scores").append(button);
-  // save the scores back in localstorage
-
-  // display the scoreboard
 }
